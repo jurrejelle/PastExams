@@ -1,0 +1,163 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\title{20 proofs in 1 sitting}
+\author{J.J.K Groenendijk}
+\date{26/10/2020}
+\begin{document}
+
+\section{Exam}
+
+1. A y\\
+2. C y\\
+3. B y\\
+4. A y\\
+5. B y\\
+6. B y\\
+7. B y\\
+8. A y\\
+9. A y\\
+10. C y\\
+11. C y\\
+12. C y\\
+13. D y\\
+14. C y\\
+15. B y\\
+16. B y\\
+17. B y\\
+18. C y\\
+19. D y\\
+20. D y\\
+21. \\
+ a. \\
+[insert truth table] y
+ b. No, becuase the row [x] has a different value for both / Yes because every row underneith the final columns has the same value.y
+ 
+ \\c. Take all values that are false. Then do \neg((row[p] \land row[q] \land row[r]) \lor (nextrow[p] \land nextrow[q] \land nextrow[r]) \lor ...) and then simplify out using deMorgans law until at CNF. 
+ y
+22. \\
+ a.\\
+ D = {0,1,2,3,4,5,6,7,8,9,10}\\
+ E = {0,2,4,6,8,10}\\
+ P = {2,3,5,7}\\
+ S = {0,1,4,9}\\
+ R = {(9,10),(10,9),(8,10),(10,8),(9,9),(10,10)}\\
+ b. Yes, namely x=2\\
+ \\
+ \\
+23.
+a.
+To prove: $$\forall n \geq 1, n \in N: \sum_{i=1}^{n}i(i+1) = \frac{n(n+1)(n+2)}{3}$$
+basecase: for $n=1$, $$\sum_{i=1}^{1}i(i+1) = \frac{1(1+1)(1+2)}{3}$$ 
+$$1(1+1) = \frac{6}{3}$$
+$$2 = 2$$
+The base case holds.
+
+I.H: We assume, for an arbitrary $n \in N,n \geq 1$:
+$$\sum_{i=1}^{n}i(i+1) = \frac{n(n+1)(n+2)}{3}$$\\
+We want to prove: $$\sum_{i=1}^{n}i(i+1) = \frac{n(n+1)(n+2)}{3} \rightarrow \sum_{i=1}^{n+1}i(i+1) = \frac{(n+1)(n+1+1)(n+2+1)}{3}$$
+
+$$\sum_{i=1}^{n+1}i(i+1) = \frac{(n+1)(n+1+1)(n+2+1)}{3}$$
+$$\sum_{i=1}^{n+1}i(i+1) = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$(n+1)(n+2) + \sum_{i=1}^{n}i(i+1) = \frac{(n+1)(n+2)(n+3)}{3}$$
+By the I.H.:
+$$(n+1)(n+2) + \frac{n(n+1)(n+2)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{3(n+1)(n+2)}{3} + \frac{n(n+1)(n+2)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{3(n+1)(n+2) + n(n+1)(n+2)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{(3+n) (n+1)(n+2)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+$$\frac{(n+1)(n+2)(n+3)}{3} = \frac{(n+1)(n+2)(n+3)}{3}$$
+Which is what we wanted to prove. n was arbitrarily chosen, therefore, our Proof by Induction is finished, and we have proven that $$\forall n \geq 1, n \in N: \sum_{i=1}^{n}i(i+1) = \frac{n(n+1)(n+2)}{3}$$
+$\Box$
+y
+b. i.\\ 
+Okay.\\
+$$x = \sum_{i=0}^{0}i$$
+$$x = 0$$, which is true.
+ii.\\
+It holds before the loop, so $$x = \sum_{i=0}^{c}i$$
+After the loop:$$x+(c+1) = \sum_{i=0}^{c+1}i$$
+$$x+(c+1) = c+1 +\sum_{i=0}^{c}i$$
+$$x+(c+1) = c+1 + x$$, which is correct.\\
+y
+iii. n is a finite number. c starts at 0 and always grows, so at some point, c will be bigger than n.\\
+\\
+24.\\
+a. 
+We can rewrite the first part as:\\
+$(x \in A \oplus x \in B) \land (x \in C)$\\
+$((x \in A \lor x \in B) \land \neg(x \in A \land x \in B)) \land (x \in C)$\\
+$((x \in A \lor x \in B) \land ( x \not \in A \lor  x \not\in B)) \land (x \in C)$\\
+\\
+\\
+
+
+
+We can rewrite the second part as:\\
+$(x \in A \land x \in C) \oplus (x \in B \land x \in C)$\\
+$((x \in A \land x \in C) \lor (x \in B \land x \in C)) \land \neg((x \in A \land x \in C) \land (x \in B \land x \in C))$\\
+$((x \in A \lor x \in B ) \land x \in C)) \land \neg((x \in A \land x \in C) \land (x \in B \land x \in C))$\\
+$(x \in A \lor x \in B ) \land x \in C \land (\neg(x \in A \land x \in C) \lor \neg(x \in B \land x \in C))$\\
+$(x \in A \lor x \in B ) \land x \in C \land ((x \not \in A \lor x \not \in C) \lor (x \not \in B \lor x \not \in C))$\\
+$(x \in A \lor x \in B ) \land x \in C \land (x \not \in A \lor x \not \in B \lor x \not \in C)$\\
+$(x \in A \lor x \in B ) \land x \in C \land (x \not \in A \lor x \not \in B)$\\
+$(x \in A \lor x \in B ) \land (x \not \in A \lor x \not \in B) \land x \in C $\\
+\\
+
+And therefore, we can see that these two statements are the same, which is what we wanted to prove. $\Box$\\
+y
+
+b is not true, with as counterexample:\\
+A = {1}\\
+B = {1,2}\\
+C = {2}\\
+y
+25.\\
+a. \\
+I : $120 \in S$\\
+II: $(x \cdot y = z \land z \in S) \rightarrow x,y \in S$\\
+III: $(x,y \in S) \rightarrow (x \cdot y \in S)$\\
+Iv: There is nothing else in S.\\
+\\
+b.\\
+Define a function f(x) that takes in a word x and returns the amount of a in that word. To prove: $x \in S \rightarrow 2 \nmid f(x) $\\
+We will use a proof by structural induction.\\
+Base case: $a \in S$. $f(a) = 1$, which is odd, and therefore the base case holds.\\
+\\
+Induction hypothesis: $x \in S \land 2 \nmid f(x)$
+We assume this is true for some arbitrary $x \in S$.\\
+
+Inductive step 1: $x \in S \rightarrow xi \in S$\\
+We know that since $x \in S$, $f(x)=2y+1$ for some integer y.
+$f(xi) = f(x)+f(i) = 2y+1 + 0 = 2y+1$, which is odd, which is what we wanted to prove.\\
+\\
+
+Inductive step 2: $x \in S \rightarrow axa \in S$\\
+We know that since $x \in S$, $f(x)=2y+1$ for some integer y.
+$f(axa) = f(a)+f(x)+f(a) = 1+ 2y+1 + 1 = 2(y+1)+1$, which is odd, which is what we wanted to prove.
+
+Inductive step 3: $x,y \in S \rightarrow ixiyixi \in S$\\
+
+We know that since $x \in S$, $f(x)=2a+1$ for some integer a, and similarly, since $y \in S$, $f(y)=2b+1$ for some integer b.\\
+
+$f(ixiyixi) = f(i)+f(x)+f(i)+f(y)+f(i)+f(x)+f(i) = 0+ 2a+1 + 0 + 2b+1 + 0 + 2a+1 + 0 = 2(2a+b+1)+1$, which is odd, which is what we wanted to prove.\\
+\\
+And since we have proven this all for some arbitrary element x in S, this concludes our proof by structural induction and we have proven that if x is in S, then the number of a in x is odd.\\
+$\Box$\\
+\\
+26.a\\
+Every function is a relation, but not every relation is a function. For example, $f(X) = \pm x$ is a relation but not a function. This is because functions can only have 1 output per input, while relations do not have that constraint.\\
+
+b.\\
+i. This one does, namely $f(x) = \frac{x-26}{18}$\\
+ii. No, the cardinality of Z and R are different, they are not binjective, and therefore they do not have an inverse.
+iii. Sure, $h^{-1} = \{(b,a),(d,c),(f,e),(h,g),(j,i)\}$\\
+iv. Sure, namely $l^{-1} = \{(1,1),(2,2),(3,3)\}$\\
+c. \\
+i. is true, A triangle is always similar to itself, if triangle a is similar to triangle b, and triangle b is similar to triangle c, then triangle a is similar to triangle c. And lastly, if triangle a is similar to triangle b, then triangle b is similar to triangle a. Similarity has all the properties of an equivalence relationship, and therefore it is an equivalence relationship. \\
+\\
+ii. suppose there is a person x, with an age of 1 and a wage of 2, and there is person y with an age of 100 and a wage of 1. \\
+First, we can deduce (x,y) is in b, because
+3<=101. \\
+To be an equivalence relationship, (x,x) should be in B. Therefore, 2+2<=1+1, so 4<=2. However, this does not hold, so B is not an equivalence relationship. 
+
+\end {document}
